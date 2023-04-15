@@ -1,5 +1,7 @@
 const { CapybaraType } = require('./capyabara_type');
 
+const { encodeImage } = require('../../image_management');
+
 const { 
   getAllCapybaras,
   getCapyByID,
@@ -17,17 +19,31 @@ const RootQueryType = new GraphQLObjectType({
     fields: {
       capybaras: {
         type: new GraphQLList(CapybaraType),
-        resolve: getAllCapybaras
+        resolve: resolveCapybaras
       },
       capybara: {
         type: CapybaraType,
         args: {
           id: { type: GraphQLNonNull(GraphQLID) }
         },
-        resolve: getCapyByID
+        resolve: resolveCapybara
       }
     }
   });
+
+function resolveCapybaras() 
+{
+  const all = getAllCapybaras();
+  //all.map(capy => capy.photoUrl = encodeImage(capy.photoUrl));
+  return all;
+}
+
+function resolveCapybara(id) 
+{
+  const found = getCapyByID(id);
+  //found.photoUrl = encodeImage(found.photoUrl);
+  return found;
+}
 
 module.exports = {
     RootQueryType

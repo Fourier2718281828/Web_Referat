@@ -10,6 +10,7 @@ function initDB()
     addCapybara("Dave", "Concealment-Master Capybara", ["Hay"], "photos\\hidden.jpg");
     addCapybara("Joana", "Gorgeous Capybara", ["Lattuce"], "photos\\gorgeous.jpg");
     addCapybara("Sleepy", "Dreaming Capybara", ["Dreams", "Oranges"], "photos\\dreaming.jpg");
+    console.log(DB);
     console.log("DB initialized");
 }
 
@@ -31,7 +32,6 @@ function getCapyByID(id)
 function addCapybara(name, type, favouriteFood, photoUrl)
 {
     const capy = new CapybaraDBSchema(nextId++, name, type, favouriteFood, photoUrl);
-    console.log(capy);
     DB.push(capy);
     return capy;
 }

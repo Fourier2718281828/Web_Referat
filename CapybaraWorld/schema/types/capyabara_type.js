@@ -1,4 +1,3 @@
-const { PhotoType } = require('./photo_type');
 const { 
     GraphQLObjectType, 
     GraphQLString,
@@ -13,7 +12,7 @@ const CapybaraType = new GraphQLObjectType({
       name: { type: GraphQLString },
       type: { type: GraphQLString },
       favouriteFood: { type: new GraphQLList(GraphQLString) },
-      photo: { type: PhotoType }
+      photo: { type: GraphQLString }
     }
 });
 
