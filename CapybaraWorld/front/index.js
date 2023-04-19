@@ -10,7 +10,7 @@ const defaultImage = 'https://st3.depositphotos.com/23594922/31822/v/600/deposit
 function createImageChild(imageStr)
 {
     const image = document.createElement('img');
-    image.setAttribute('src', imageStr ? imageStr : defaultImage);
+    image.setAttribute('src', imageStr ? 'data:image/png;base64,' + imageStr : defaultImage);
     image.setAttribute('alt', 'Placeholder Image');
     return image;
 }
@@ -66,7 +66,7 @@ function getAllCapybaras()
         const capies = data.data.capybaras;
         console.log(capies);
         capies.forEach(capy => {
-            addCell(capy.name, capy.type, capy.favouriteFood, capy.imageStr);
+            addCell(capy.name, capy.type, capy.favouriteFood, capy.photo);
         });
     })
     .catch(err => console.log)
