@@ -20,8 +20,16 @@ function doQuery(query, dataProcessor)
     .catch(console.log)
 }
 
+function clearList()
+{
+    while (capy_list.firstChild) {
+        capy_list.removeChild(capy_list.firstChild);
+    }
+}
+
 function getAllCapybaras()
 {
+    clearList();
     doQuery(GET_NAMES_QUERY, data => {
         const capies = data.data.capybaras;
         capies.forEach(capy => {

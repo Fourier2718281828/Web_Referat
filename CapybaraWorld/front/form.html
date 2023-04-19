@@ -83,7 +83,7 @@
 		<h1>Capybara World</h1>
 	</div>
 	<div class="content">
-		<form action="/add-capybara" method="POST" enctype="multipart/form-data">
+		<form action="/add-capybara" method="POST" id="capy_form" enctype="multipart/form-data">
 			<label for="name">Name:</label>
 			<input type="text" id="name" name="name" required>
 			
@@ -91,15 +91,11 @@
 			<input type="text" id="type" name="type" required>
 			
 			<label for="favourite-food">Favourite Food:</label>
-			<input type="text" id="favourite-food" name="favourite-food[]" required><br>
-			<input type="text" id="favourite-food" name="favourite-food[]" required><br>
 			<input type="text" id="favourite-food" name="favourite-food[]" required>
 			
-			<label for="photo">Photo:</label>
-			<input type="file" id="photo" name="photo" accept="image/*" required>
-			
-			<input type="submit" value="Add Capybara">
+			<input type="submit" value="Add Capybara" id="submit_button">
 		</form>
 	</div>
+    <script src="form.js"></script>
 </body>
 </html>

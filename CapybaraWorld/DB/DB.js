@@ -10,7 +10,6 @@ function initDB()
     addCapybara("Dave", "Concealment-Master Capybara", ["Hay"], "photos\\hidden.jpg");
     addCapybara("Joana", "Gorgeous Capybara", ["Lattuce"], "photos\\gorgeous.jpg");
     addCapybara("Sleepy", "Dreaming Capybara", ["Dreams", "Oranges"], "photos\\dreaming.jpg");
-    console.log(DB);
     console.log("DB initialized");
 }
 

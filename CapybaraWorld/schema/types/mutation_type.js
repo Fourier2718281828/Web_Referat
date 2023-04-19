@@ -23,11 +23,11 @@ const MutationType = new GraphQLObjectType({
         args: {
           name: { type: GraphQLNonNull(GraphQLString) },
           type: { type: GraphQLNonNull(GraphQLString) },
-          favouriteFood: { type: GraphQLNonNull(new GraphQLList(GraphQLString)) },
+          favouriteFood: { type: GraphQLNonNull(GraphQLString) },
           photo: { type: GraphQLString }
         },
         resolve: (_, { name, type, favouriteFood, photo }) => {
-            return addCapybara(name, type, favouriteFood, photo);
+            return addCapybara(name, type, [favouriteFood], photo);
         }
       },
       updateCapybara: {
