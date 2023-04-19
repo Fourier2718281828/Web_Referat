@@ -15,13 +15,6 @@ server.use(bodyParser.json());
 server.use('/capybaraworld', graphqlHTTP({
   schema: schema,
   graphiql: true,
-  formatError: (error) => {
-    return {
-      message: error.message,
-      locations: error.locations,
-      path: error.path,
-    }
-  }
 }));
 
 server.listen(PORT, () => {

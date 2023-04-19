@@ -34,9 +34,13 @@ const RootQueryType = new GraphQLObjectType({
 function resolveCapybaras() 
 {
   const all = getAllCapybaras();
-  // all.map(capy => capy.photoUrl = encodeImage(capy.photoUrl));
-  all.forEach(capy => capy.photo = encodeImage(capy.photo));
-  return all;
+  const copy = all.map(obj => Object.assign({}, obj));
+  copy.forEach(capy => {
+    capy.photo = encodeImage(capy.photo);
+    capy.name = "fuck";
+  });
+  
+  return copy;
 }
 
 function resolveCapybara(id) 
