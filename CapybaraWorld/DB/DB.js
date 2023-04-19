@@ -60,6 +60,17 @@ function deleteCapybara(id)
     return capy;
 }
 
+function deleteCapybaraByName(name)
+{
+    const index = DB.findIndex(capy => capy.name === name);
+    if(index === -1)
+    throw Error(`Capybara with name ${name} not found`);
+    const capy = DB[index];
+    DB.splice(index, 1);
+    console.log(`Capybara with name ${name} deleted`);
+    return capy;
+}
+
 module.exports = {
     getAllCapybaras,
     getCapyByID,
@@ -67,4 +78,5 @@ module.exports = {
     updateCapybara,
     deleteCapybara,
     initDB,
+    deleteCapybaraByName,
 };

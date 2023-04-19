@@ -8,8 +8,6 @@ const GET_NAMES_QUERY = `
   }
 `;
 
-const REMOVE_BY_NAME_QUERY = ``;
-
 function doQuery(query, dataProcessor)
 {
     return fetch('http://localhost:8000/capybaraworld', {
@@ -33,7 +31,10 @@ function getAllCapybaras()
 
 function removeCapybaraFromDB(name)
 {
-    doQuery(REMOVE_BY_NAME_QUERY, _ => {});
+    console.log("Deleting name: ", name);
+    doQuery(`mutation {
+        deleteCapybara(name: \"${name}\")
+      }`, _ => {});
 }
 
 function listItem(name)
@@ -49,14 +50,17 @@ function listItem(name)
 function addItem(name)
 {
     const li = listItem(name);
-    li.addEventListener(removeClicked);
+    li.addEventListener("click", removeClicked);
     capy_list.appendChild(li);
 }
 
 function removeClicked(event)
 {
     const clicked = event.target;
-    document.removeChild(clicked);
+    const nameToDelete = clicked.innerText;
+    //document.removeChild(clicked);
+    clicked.remove();
+    removeCapybaraFromDB(nameToDelete);
 }
 
 getAllCapybaras();

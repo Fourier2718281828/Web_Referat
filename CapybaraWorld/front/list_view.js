@@ -28,7 +28,7 @@ function addCell(name, type, favouriteFood, imageStr)
     const image = createImageChild(imageStr);
     const nameNode = createPTextNode('h2', name);
     const typeNode = createPTextNode('p', type);
-    const foodNode = createPTextNode('p', `Loves foods: ${favouriteFood.join(', ')}.`);
+    const foodNode = createPTextNode('p', `Loved foods: ${favouriteFood.join(', ')}.`);
     
     div.className = "cell";
     div.appendChild(image);
@@ -54,21 +54,25 @@ const GET_ALL_QUERY = `
   }
 `;
 
-function getAllCapybaras()
+function doQuery(query, dataProcessor)
 {
-    fetch('http://localhost:8000/capybaraworld', {
+    return fetch('http://localhost:8000/capybaraworld', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({query:  GET_ALL_QUERY }),
+        body: JSON.stringify({query:  query }),
     })
     .then(res => res.json())
-    .then(data => {
+    .then(dataProcessor)
+    .catch(console.log)
+}
+
+function getAllCapybaras()
+{
+    doQuery(GET_ALL_QUERY, data => {
         const capies = data.data.capybaras;
         capies.forEach(capy => {
             addCell(capy.name, capy.type, capy.favouriteFood, capy.photo);
-        });
-    })
-    .catch(err => console.log)
+        })});
 }
 
 getAllCapybaras();

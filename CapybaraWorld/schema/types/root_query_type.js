@@ -37,9 +37,8 @@ function resolveCapybaras()
   const copy = all.map(obj => Object.assign({}, obj));
   copy.forEach(capy => {
     capy.photo = encodeImage(capy.photo);
-    capy.name = "fuck";
   });
-  
+
   return copy;
 }
 

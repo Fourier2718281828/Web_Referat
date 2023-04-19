@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Capybara World</title>
+    <title>List of Names</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -29,6 +29,7 @@
         display: inline-block;
         margin-right: 20px;
         margin-left: 10px;
+        font-size: 24px;
       }
       a {
         color: #333;
@@ -40,18 +41,41 @@
       a:hover {
         border-bottom: 2px solid #333;
       }
+      .add-capybara {
+        background-color: #f2f2f2;
+        border: 2px solid #333;
+        border-radius: 10px;
+        display: block;
+        margin: 30px auto;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+      .add-capybara:hover {
+        background-color: #333;
+        color: #fff;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
     </style>
   </head>
   <body>
     <div class="header">
-      <h1>Capybara World</h1>
+      <h1>Choose the Capybara to Remove</h1>
     </div>
     <div class="content">
       <p></p>
-      <ul>
-        <li><a href="list_view.html">Admire The Capybaras</a></li>
-        <li><a href="manage_list.html">Manage Capybara List</a></li>
+      <ul id="capy_list">
+        <!-- <li><a href="#">Name 1</a></li> -->
       </ul>
+      <a href="add_capybara.html" class="add-capybara">Add a Capybara</a>
     </div>
+    <script src="manage_list.js"></script>
   </body>
 </html>

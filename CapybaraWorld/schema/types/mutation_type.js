@@ -1,8 +1,7 @@
 const { CapybaraType } = require('./capyabara_type');
 
 const { 
-    getAllCapybaras,
-    getCapyByID,
+    deleteCapybaraByName,
     addCapybara,
     updateCapybara,
     deleteCapybara,
@@ -45,12 +44,12 @@ const MutationType = new GraphQLObjectType({
         }
       },
       deleteCapybara: {
-        type: GraphQLID,
+        type: GraphQLString,
         args: {
-          id: { type: GraphQLNonNull(GraphQLID) }
+          name: { type: GraphQLNonNull(GraphQLString) }
         },
-        resolve: (_, { id }) => {
-            return deleteCapybara(id);
+        resolve: (_, { name }) => {
+            return deleteCapybaraByName(name);
         }
       }
     }
