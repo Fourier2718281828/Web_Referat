@@ -64,7 +64,6 @@ function getAllCapybaras()
     .then(res => res.json())
     .then(data => {
         const capies = data.data.capybaras;
-        console.log(capies);
         capies.forEach(capy => {
             addCell(capy.name, capy.type, capy.favouriteFood, capy.photo);
         });

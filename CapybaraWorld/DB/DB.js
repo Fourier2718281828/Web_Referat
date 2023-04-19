@@ -5,11 +5,11 @@ let nextId = 0;
 
 function initDB()
 {
-    addCapybara("Pepe The Capybara", "Curious Capybara", ["Special salad"], "photos\\image.png");
-    addCapybara("John", "Loving snow Capybara", ["Snow", "Melted snow", "Water-dissolved snow"], "photos\\image.png");
-    addCapybara("Dave", "Concealment-Master Capybara", ["Hay"], "photos\\image.png");
-    addCapybara("Joana", "Gorgeous Capybara", ["Lattuce"], "photos\\image.png");
-    addCapybara("Sleepy", "Dreaming Capybara", ["Dreams", "Oranges"], "photos\\image.png");
+    addCapybara("Pepe The Capybara", "Curious Capybara", ["Special salad"], "photos\\pepe.jpg");
+    addCapybara("John", "Loving snow Capybara", ["Snow", "Melted snow", "Water-dissolved snow"], "photos\\hate_snow.jpg");
+    addCapybara("Dave", "Concealment-Master Capybara", ["Hay"], "photos\\hidden.jpg");
+    addCapybara("Joana", "Gorgeous Capybara", ["Lattuce"], "photos\\gorgeous.jpg");
+    addCapybara("Sleepy", "Dreaming Capybara", ["Dreams", "Oranges"], "photos\\dreaming.jpg");
     console.log(DB);
     console.log("DB initialized");
 }
